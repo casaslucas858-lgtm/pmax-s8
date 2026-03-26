@@ -1,0 +1,42 @@
+[
+  {
+    "question": "¿Quién puede participar en PMAX S8?",
+    "answer": "Jugadores de Roblox residentes en Argentina, edad 10-15 años, con medio de cobro válido (Mercado Pago) y disponibilidad para todas las jornadas."
+  },
+  {
+    "question": "¿Cuántos jugadores por equipo?",
+    "answer": "Mínimo 2, máximo 3 jugadores por equipo. Solo 2 juegan activamente por jornada, el tercero actúa como suplente opcional."
+  },
+  {
+    "question": "¿Cómo funciona el sistema de puntos?",
+    "answer": "Cada partida otorga: 1° lugar = 10 puntos, 2° lugar = 5 puntos, 3° lugar = 2.5 puntos, 4° lugar = 0 puntos. Solo el Top 4 suma puntos."
+  },
+  {
+    "question": "¿Cuándo son las jornadas?",
+    "answer": "Cada 2 días no laborales (Viernes-Sábado-Domingo), comenzando el 13 de Julio. Durante vacaciones de invierno se juegan 7 rondas concentradas."
+  },
+  {
+    "question": "¿Qué pasa si un equipo no se presenta?",
+    "answer": "No presentación = 0 puntos en esa partida. La presencia es obligatoria en todas las jornadas."
+  },
+  {
+    "question": "¿Cómo se clasifican a la siguiente fase?",
+    "answer": "Solo el 1° de cada grupo avanza (4 equipos total). Luego compiten en Grupo Grande donde el Top 2 va a la Gran Final."
+  },
+  {
+    "question": "¿Qué es el sistema de bans en la final?",
+    "answer": "En la Gran Final (BO3), cada equipo banea 3 juegos, elige 1 juego, y se juega 1 juego random del pool restante. Primero en ganar 2 partidas es campeón."
+  },
+  {
+    "question": "¿Puedo cambiar jugadores durante el torneo?",
+    "answer": "Los cambios de alineación son limitados. El suplente puede reemplazar a titulares solo con autorización del staff."
+  },
+  {
+    "question": "¿Qué está prohibido?",
+    "answer": "Exploits, hacks, insultos graves, doxxeo, NSFW, sabotaje, falsificación. Cualquier infracción resulta en sanciones (WPoints) o descalificación."
+  },
+  {
+    "question": "¿Cómo cobro el premio si gano?",
+    "answer": "El equipo campeón recibe $100.000 ARS vía Mercado Pago. Es requisito tener medio de cobro válido antes del torneo."
+  }
+]

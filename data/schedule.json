@@ -1,0 +1,22 @@
+{
+  "jornadas": [
+    {
+      "numero": 1,
+      "fecha": "13 Julio 2025",
+      "fase": "Fase de Grupos",
+      "juego": "TBD"
+    },
+    {
+      "numero": 2,
+      "fecha": "TBD",
+      "fase": "Fase de Grupos",
+      "juego": "TBD"
+    },
+    {
+      "numero": 3,
+      "fecha": "TBD",
+      "fase": "Fase de Grupos",
+      "juego": "TBD"
+    }
+  ]
+}
