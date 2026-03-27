@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo B — PMAX S8</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">PMAX <span>S8</span></div>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="../index.html">Dashboard</a></li>
+                <li><a href="formato.html">Formato</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+                <li><a href="reglas.html">Reglas</a></li>
+                <li><a href="equipos.html">Equipos</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="page-hero">
+            <div class="container">
+                <h1>Grupo B</h1>
+                <p>Fase de Grupos — 6 Equipos</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Tabla de Posiciones</h2>
+                    <p class="section-subtitle">Clasificación actualizada del Grupo B</p>
+                </div>
+
+                <div id="standings-container">
+                    <!-- Cargado dinámicamente desde standings.json -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Equipos</h2>
+                    <p class="section-subtitle">Participantes del Grupo B</p>
+                </div>
+
+                <div class="grid grid-3" id="teams-container-group">
+                    <!-- Se carga dinámicamente -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">PMAX S8</div>
+            <p class="footer-text">Torneo Competitivo de Roblox — Temporada 8</p>
+            
+            <ul class="footer-links">
+                <li><a href="../index.html">Dashboard</a></li>
+                <li><a href="formato.html">Formato</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+                <li><a href="reglas.html">Reglas</a></li>
+                <li><a href="equipos.html">Equipos</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="staff.html">Staff</a></li>
+            </ul>
+
+            <div class="copyright">
+                © 2025 PMAX. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/data.js"></script>
+    <script>
+        // Cargar datos del Grupo B
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Cargar tabla
+            await PMAX_DATA.renderStandings('Grupo B');
+            
+            // Cargar equipos del grupo
+            const teams = await PMAX_DATA.loadData('teams');
+            const groupTeams = teams.filter(t => t.group === 'Grupo B');
+            
+            const container = document.getElementById('teams-container-group');
+            container.innerHTML = groupTeams.map(team => `
+                <div class="card">
+                    <h3 class="card-title">${team.name}</h3>
+                    <div class="card-content">
+                        <p><strong>Jugadores:</strong><br>${team.players.join('<br>')}</p>
+                    </div>
+                </div>
+            `).join('');
+        });
+    </script>
+</body>
+</html>
