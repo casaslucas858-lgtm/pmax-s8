@@ -1,8 +1,8 @@
 [
   {
-    "name": "TBD",
+    "name": "GLFC",
     "group": "Grupo A",
-    "players": ["Jugador1", "Jugador2"]
+    "players": ["Santiago", "Jeremías"]
   },
   {
     "name": "TBD",
@@ -30,9 +30,9 @@
     "players": ["Jugador1", "Jugador2"]
   },
   {
-    "name": "TBD",
+    "name": "PXG",
     "group": "Grupo B",
-    "players": ["Jugador1", "Jugador2"]
+    "players": ["Francisco", "Gabriel"]
   },
   {
     "name": "TBD",
