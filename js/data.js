@@ -17,10 +17,15 @@ async function loadData(type) {
     }
     
     try {
-        // Detectar si estamos en la raíz o en /pages/
-        const basePath = window.location.pathname.includes('/pages/') ? '../data/' : 'data/';
+        // Detectar la ruta base correcta
+        const path = window.location.pathname;
+        const basePath = path.endsWith('.html') && path.includes('/pages/') ? '../data/' : 'data/';
+        
         const response = await fetch(`${basePath}${type}.json`);
-        if (!response.ok) throw new Error(`Failed to load ${type}`);
+        if (!response.ok) {
+            console.error(`Failed to fetch ${basePath}${type}.json - Status: ${response.status}`);
+            throw new Error(`Failed to load ${type}`);
+        }
         
         PMAX_DATA[type] = await response.json();
         return PMAX_DATA[type];
