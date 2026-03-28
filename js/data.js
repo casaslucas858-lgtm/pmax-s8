@@ -1,6 +1,6 @@
 // ===========================
-// PMAX S8 - DATA LOADER
-// Load data from JSON files
+// PMAX S8 - DATA LOADER V2
+// Ultra defensive approach
 // ===========================
 
 const PMAX_DATA = {
@@ -10,38 +10,70 @@ const PMAX_DATA = {
     faq: null
 };
 
-// Load JSON data
+// Configuración de rutas base
+const getBasePath = () => {
+    const currentPath = window.location.pathname;
+    
+    // GitHub Pages: /pmax-s8/
+    if (currentPath.includes('/pmax-s8/')) {
+        return '/pmax-s8/data/';
+    }
+    
+    // Local
+    return '/data/';
+};
+
+// Load JSON data - versión ultra defensiva
 async function loadData(type) {
     if (PMAX_DATA[type]) {
+        console.log(`✓ ${type} ya cargado (cache)`);
         return PMAX_DATA[type];
     }
     
-    try {
-        // Detectar la ruta base correcta
-        const path = window.location.pathname;
-        const basePath = path.endsWith('.html') && path.includes('/pages/') ? '../data/' : 'data/';
-        
-        const response = await fetch(`${basePath}${type}.json`);
-        if (!response.ok) {
-            console.error(`Failed to fetch ${basePath}${type}.json - Status: ${response.status}`);
-            throw new Error(`Failed to load ${type}`);
+    // Intentar múltiples rutas posibles
+    const possiblePaths = [
+        `${getBasePath()}${type}.json`,
+        `../data/${type}.json`,
+        `data/${type}.json`,
+        `./data/${type}.json`
+    ];
+    
+    console.log(`Intentando cargar ${type}.json...`);
+    
+    for (const path of possiblePaths) {
+        try {
+            console.log(`  Probando: ${path}`);
+            const response = await fetch(path);
+            
+            if (response.ok) {
+                const data = await response.json();
+                PMAX_DATA[type] = data;
+                console.log(`  ✓ ÉXITO: ${type} cargado desde ${path}`);
+                return data;
+            } else {
+                console.log(`  ✗ Error ${response.status}: ${path}`);
+            }
+        } catch (error) {
+            console.log(`  ✗ Falló: ${path}`);
         }
-        
-        PMAX_DATA[type] = await response.json();
-        return PMAX_DATA[type];
-    } catch (error) {
-        console.error(`Error loading ${type}:`, error);
-        return null;
     }
+    
+    console.error(`❌ ERROR: No se pudo cargar ${type}.json`);
+    return null;
 }
 
 // Render standings table
 async function renderStandings(groupName = null) {
+    console.log(`renderStandings: ${groupName || 'todos'}`);
+    
     const standings = await loadData('standings');
     if (!standings) return;
     
     const container = document.getElementById('standings-container');
-    if (!container) return;
+    if (!container) {
+        console.error('❌ #standings-container no existe');
+        return;
+    }
     
     const groups = groupName ? 
         [standings.groups.find(g => g.name === groupName)] : 
@@ -84,15 +116,22 @@ async function renderStandings(groupName = null) {
         
         container.innerHTML += groupHTML;
     });
+    
+    console.log(`✓ Standings OK`);
 }
 
 // Render teams list
 async function renderTeams() {
+    console.log('renderTeams llamado');
+    
     const teams = await loadData('teams');
     if (!teams) return;
     
     const container = document.getElementById('teams-container');
-    if (!container) return;
+    if (!container) {
+        console.error('❌ #teams-container no existe');
+        return;
+    }
     
     const teamsHTML = teams.map(team => `
         <div class="card">
@@ -105,17 +144,23 @@ async function renderTeams() {
     `).join('');
     
     container.innerHTML = teamsHTML;
+    console.log(`✓ Teams OK: ${teams.length}`);
 }
 
 // Render FAQ
 async function renderFAQ() {
+    console.log('renderFAQ llamado');
+    
     const faq = await loadData('faq');
     if (!faq) return;
     
     const container = document.getElementById('faq-container');
-    if (!container) return;
+    if (!container) {
+        console.error('❌ #faq-container no existe');
+        return;
+    }
     
-    const faqHTML = faq.map((item, index) => `
+    const faqHTML = faq.map(item => `
         <div class="card mb-md">
             <h3 class="card-title">${item.question}</h3>
             <div class="card-content">
@@ -125,15 +170,21 @@ async function renderFAQ() {
     `).join('');
     
     container.innerHTML = faqHTML;
+    console.log(`✓ FAQ OK: ${faq.length}`);
 }
 
 // Render calendar
 async function renderCalendar() {
+    console.log('renderCalendar llamado');
+    
     const schedule = await loadData('schedule');
     if (!schedule) return;
     
     const container = document.getElementById('calendar-container');
-    if (!container) return;
+    if (!container) {
+        console.error('❌ #calendar-container no existe');
+        return;
+    }
     
     const calendarHTML = schedule.jornadas.map(jornada => `
         <div class="card mb-md">
@@ -147,9 +198,10 @@ async function renderCalendar() {
     `).join('');
     
     container.innerHTML = calendarHTML;
+    console.log(`✓ Calendario OK: ${schedule.jornadas.length}`);
 }
 
-// Export functions
+// Export
 window.PMAX_DATA = {
     loadData,
     renderStandings,
@@ -157,3 +209,5 @@ window.PMAX_DATA = {
     renderFAQ,
     renderCalendar
 };
+
+console.log('✓ PMAX_DATA cargado');
