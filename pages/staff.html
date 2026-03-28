@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff — PMAX S8</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/components.css">
 </head>
@@ -12,10 +14,15 @@
     <header>
         <nav>
             <div class="logo">PMAX <span>S8</span></div>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             <ul class="nav-links">
                 <li><a href="../index.html">Dashboard</a></li>
+                <li><a href="formato.html">Formato</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+                <li><a href="reglas.html">Reglas</a></li>
+                <li><a href="equipos.html">Equipos</a></li>
                 <li><a href="faq.html">FAQ</a></li>
-                <li><a href="staff.html" class="active">Staff</a></li>
             </ul>
         </nav>
     </header>
@@ -24,35 +31,145 @@
         <section class="page-hero">
             <div class="container">
                 <h1>Staff</h1>
-                <p>Equipo Organizador</p>
+                <p>Organización del Torneo</p>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Equipo Organizador</h2>
+                    <p class="section-subtitle">Staff oficial de PMAX S8</p>
+                </div>
+
                 <div class="grid grid-3">
                     <div class="card">
                         <h3 class="card-title">Organizador Principal</h3>
                         <div class="card-content">
-                            <p>Dirección general y decisiones finales.</p>
+                            <p><strong>Rol:</strong> Dirección general del torneo</p>
+                            <p><strong>Responsabilidades:</strong></p>
+                            <ul class="styled-list mt-sm">
+                                <li>Decisiones finales</li>
+                                <li>Reglamento oficial</li>
+                                <li>Validación de resultados</li>
+                                <li>Sanciones mayores</li>
+                            </ul>
                         </div>
                     </div>
+
                     <div class="card">
-                        <h3 class="card-title">Staff S1</h3>
+                        <h3 class="card-title">Staff de Comunicación (S1)</h3>
                         <div class="card-content">
-                            <p>Comunicación y anuncios oficiales.</p>
+                            <p><strong>Rol:</strong> Gestión de anuncios y comunicación</p>
+                            <p><strong>Responsabilidades:</strong></p>
+                            <ul class="styled-list mt-sm">
+                                <li>Anuncios de jornadas</li>
+                                <li>Mensajes oficiales</li>
+                                <li>Actualización de información</li>
+                                <li>Comunicación pública</li>
+                            </ul>
                         </div>
                     </div>
+
                     <div class="card">
-                        <h3 class="card-title">Staff S3</h3>
+                        <h3 class="card-title">Staff Operativo (S3)</h3>
                         <div class="card-content">
-                            <p>Soporte operativo y resultados.</p>
+                            <p><strong>Rol:</strong> Soporte operativo y logística</p>
+                            <p><strong>Responsabilidades:</strong></p>
+                            <ul class="styled-list mt-sm">
+                                <li>Soporte de jornadas</li>
+                                <li>Check-in de equipos</li>
+                                <li>Recolección de resultados</li>
+                                <li>Backup operativo</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Contacto</h2>
+                    <p class="section-subtitle">Canales oficiales de comunicación</p>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3 class="card-title">Discord Oficial</h3>
+                        <div class="card-content">
+                            <p>Canal principal de comunicación del torneo</p>
+                            <p class="mt-sm"><strong>Link:</strong> <span class="text-muted">TBD</span></p>
+                            <p class="mt-sm text-muted">Aquí se realizan todos los anuncios oficiales, coordinación de jornadas y soporte a participantes.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Sitio Web</h3>
+                        <div class="card-content">
+                            <p>Información oficial y actualizada del torneo</p>
+                            <p class="mt-sm"><strong>URL:</strong> <a href="https://casaslucas858-lgtm.github.io/pmax-s8/" style="color: var(--primary);">casaslucas858-lgtm.github.io/pmax-s8</a></p>
+                            <p class="mt-sm text-muted">Reglamento, tablas, calendario y toda la información del torneo en un solo lugar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="card">
+                    <h3 class="card-title">Autoridad y Decisiones</h3>
+                    <div class="card-content">
+                        <p class="mb-sm">El <strong>Organizador Principal</strong> tiene la máxima autoridad sobre todas las decisiones del torneo.</p>
+                        <p class="mb-sm">Orden de prioridad en caso de conflictos:</p>
+                        <ul class="styled-list">
+                            <li><strong>1°</strong> Reglamento oficial publicado en este sitio web</li>
+                            <li><strong>2°</strong> Anuncios del Organizador Principal en Discord</li>
+                            <li><strong>3°</strong> Interpretación del staff ante casos no contemplados</li>
+                        </ul>
+                        <p class="mt-md text-muted">Cualquier cambio de reglas será publicado explícitamente en Discord y reflejado en este sitio web.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="card text-center">
+                    <h3 class="card-title">¿Consultas o Reportes?</h3>
+                    <div class="card-content">
+                        <p>Para consultas generales, revisa primero la sección <a href="faq.html" style="color: var(--primary); font-weight: 600;">FAQ</a></p>
+                        <p class="mt-sm">Para reportes de conducta o problemas técnicos, contacta al staff directamente por Discord.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">PMAX S8</div>
+            <p class="footer-text">Torneo Competitivo de Roblox — Temporada 8</p>
+            
+            <ul class="footer-links">
+                <li><a href="../index.html">Dashboard</a></li>
+                <li><a href="formato.html">Formato</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+                <li><a href="reglas.html">Reglas</a></li>
+                <li><a href="equipos.html">Equipos</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="staff.html">Staff</a></li>
+            </ul>
+
+            <div class="copyright">
+                © 2025 PMAX. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
     <script src="../js/nav.js"></script>
 </body>
 </html>
